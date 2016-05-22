@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="start-page">Back</a>
+
+      <h1 class="heading-large">
+        Can you juggle while standing on one leg?
+      </h1>
+
+      <form class="form" action="check-your-answers-page">
+
+        <fieldset class="form-group">
+
+          <legend class="visuallyhidden">Can you juggle while standing on one leg?</legend>
+
+          <label class="block-label" for="standing-yes">
+            <input id="standing-yes" type="radio" name="standing" value="Yes">
+            Yes
+          </label>
+          <label class="block-label" for="standing-no">
+            <input id="standing-no" type="radio" name="standing" value="No">
+            No
+          </label>
+
+         
+        </fieldset>
+       
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
