@@ -62,4 +62,21 @@
   </div>
 </main>
 
+<script type="text/javascript">
+  $(".no-focus").click(function () {
+//    next();
+    startTimer();
+  });
+
+  function startTimer() {
+    var timer = setTimeout(function() {
+      go('/confirmation');
+    }, 5000);
+  }
+
+//  function next() {
+//    //        go('confirmation');
+//  }
+</script>
+
 {% endblock %}
