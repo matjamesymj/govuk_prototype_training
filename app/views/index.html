@@ -63,6 +63,28 @@
 </main>
 
 <script type="text/javascript">
+
+//////////////* COMMON *//////////////
+
+// Shorthand URL
+function go(url) {
+    window.location.href = url;
+}
+
+// Shorthand URL - NO HISTORY
+function goInvisible(url) {
+    window.location.replace(url);
+}
+
+// Allow continue from enter press
+$(function() {
+    $("#question").keyup(function(event) {
+        if(event.keyCode == 13) {
+            $("#continue").click();
+        }
+    });
+});
+
   $(".no-focus").click(function () {
 //    next();
     startTimer();
