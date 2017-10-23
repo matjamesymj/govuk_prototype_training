@@ -35,6 +35,9 @@ nunjucks.setup({
   noCache: true
 }, app);
 
+// Add PKPass mimetype
+express.static.mime.define({'application/vnd.apple.pkpass': ['pkpass']});
+
 // Middleware to serve static assets
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/assets'));
