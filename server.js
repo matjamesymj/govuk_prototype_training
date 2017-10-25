@@ -15,7 +15,7 @@ var path = require('path'),
     password = process.env.PASSWORD,
     env      = process.env.NODE_ENV || 'development',
     useAuth  = process.env.USE_AUTH || config.useAuth;
-    
+
 
     env      = env.toLowerCase();
     useAuth  = useAuth.toLowerCase();
@@ -26,18 +26,20 @@ if (env === 'production' && useAuth === 'true'){
     app.use(utils.basicAuth(username, password));
 }
 
+// Add PKPass mimetype
+express.static.mime.define({'application/vnd.apple.pkpass': ['pkpass']});
+
 // Application settings
 app.set('view engine', 'html');
 app.set('views', [__dirname + '/app/views', __dirname + '/lib/']);
 
 nunjucks.setup({
   autoescape: true,
+  express: app,
   watch: true,
   noCache: true
 }, app);
 
-// Add PKPass mimetype
-express.static.mime.define({'application/vnd.apple.pkpass': ['pkpass']});
 
 // Middleware to serve static assets
 app.use('/public', express.static(__dirname + '/public'));
